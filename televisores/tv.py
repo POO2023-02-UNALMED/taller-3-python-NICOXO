@@ -10,6 +10,15 @@ class TV:
         self.__control = None
         TV.numTV += 1
 
+    def setPrecio(self, precio):
+        if self.__estado:
+            self.__precio = precio
+
+    @classmethod
+    def setNumTV(cls, num):
+        cls.numTV = num
+
+
     def getMarca(self):
         return self.__marca
 
