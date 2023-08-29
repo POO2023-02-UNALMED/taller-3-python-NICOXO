@@ -1,70 +1,62 @@
 class TV:
-    def __init__(self, marca, estado):
-        self._marca = marca
-        self._canal = 1
-        self._precio = 500
-        self._estado = estado
-        self._volumen = 1
-        self._control = None
-        TV.numTV += 1
-
     numTV = 0
 
-    @staticmethod
-    def get_numTV():
-        return TV.numTV
+    def __init__(self, marca, estado):
+        self.__marca = marca
+        self.__canal = 1
+        self.__precio = 500
+        self.__estado = estado
+        self.__volumen = 1
+        self.__control = None
+        TV.numTV += 1
 
-    def get_marca(self):
-        return self._marca
+    def getMarca(self):
+        return self.__marca
 
-    def set_marca(self, marca):
-        self._marca = marca
+    def getCanal(self):
+        return self.__canal
 
-    def get_canal(self):
-        return self._canal
+    def setCanal(self, canal):
+        if self.__estado and 1 <= canal <= 120:
+            self.__canal = canal
 
-    def set_canal(self, canal):
-        if self._estado and 1 <= canal <= 120:
-            self._canal = canal
+    def getPrecio(self):
+        return self.__precio
 
-    def get_precio(self):
-        return self._precio
+    def getEstado(self):
+        return self.__estado
 
-    def set_precio(self, precio):
-        self._precio = precio
+    def getVolumen(self):
+        return self.__volumen
 
-    def get_volumen(self):
-        return self._volumen
+    def setVolumen(self, volumen):
+        if self.__estado and 0 <= volumen <= 7:
+            self.__volumen = volumen
 
-    def set_volumen(self, volumen):
-        if self._estado and 0 <= volumen <= 7:
-            self._volumen = volumen
-
-    def get_estado(self):
-        return self._estado
+    def setControl(self, control):
+        self.__control = control
 
     def turnOn(self):
-        self._estado = True
+        self.__estado = True
 
     def turnOff(self):
-        self._estado = False
+        self.__estado = False
 
     def canalUp(self):
-        if self._estado and self._canal < 120:
-            self._canal += 1
+        if self.__estado:
+            self.__canal = min(self.__canal + 1, 120)
 
     def canalDown(self):
-        if self._estado and self._canal > 1:
-            self._canal -= 1
+        if self.__estado:
+            self.__canal = max(self.__canal - 1, 1)
 
     def volumenUp(self):
-        if self._estado and self._volumen < 7:
-            self._volumen += 1
+        if self.__estado:
+            self.__volumen = min(self.__volumen + 1, 7)
 
     def volumenDown(self):
-        if self._estado and self._volumen > 0:
-            self._volumen -= 1
+        if self.__estado:
+            self.__volumen = max(self.__volumen - 1, 0)
 
-    def enlazar_control(self, control):
-        self._control = control
-        control.set_tv(self)
+    def getControl(self):
+        return self.__control
