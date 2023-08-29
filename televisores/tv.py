@@ -63,3 +63,6 @@ class TV:
 
     def getControl(self):
         return self.__control
+
+    def getVolumen(self):
+        return self.__volumen
