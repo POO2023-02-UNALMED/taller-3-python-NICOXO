@@ -43,3 +43,6 @@ class Control:
 
     def setTV(self, tv):
         self.__tv = tv
+
+    def getTelevisor(self):
+        return self.__tv
