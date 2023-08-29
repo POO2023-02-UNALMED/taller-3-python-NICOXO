@@ -6,6 +6,12 @@ class Control:
         self.__tv = tv
         tv.setControl(self)
 
+    def getTv(self):
+        return self.__tv
+
+    def setTv(self, tv):
+        self.__tv = tv
+
     def turnOn(self):
         if self.__tv:
             self.__tv.turnOn()
@@ -37,12 +43,3 @@ class Control:
     def setVolumen(self, volumen):
         if self.__tv:
             self.__tv.setVolumen(volumen)
-
-    def getTV(self):
-        return self.__tv
-
-    def setTV(self, tv):
-        self.__tv = tv
-
-    def getTelevisor(self):
-        return self.__tv
